@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QueryMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "check_code_id"
+      ],
+      "properties": {
+        "check_code_id": {
+          "type": "object",
+          "required": [
+            "code_id"
+          ],
+          "properties": {
+            "code_id": {
+              "type": "integer",
+              "format": "uint16",
+              "minimum": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "check_all_verified"
+      ],
+      "properties": {
+        "check_all_verified": {
+          "type": "object"
+        }
+      }
+    }
+  ]
+}

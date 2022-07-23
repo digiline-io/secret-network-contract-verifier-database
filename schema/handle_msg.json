@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HandleMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "set_admin"
+      ],
+      "properties": {
+        "set_admin": {
+          "type": "object",
+          "required": [
+            "admin"
+          ],
+          "properties": {
+            "admin": {
+              "$ref": "#/definitions/HumanAddr"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "write_result"
+      ],
+      "properties": {
+        "write_result": {
+          "type": "object",
+          "required": [
+            "code_id",
+            "commit_hash",
+            "method",
+            "repo",
+            "verified"
+          ],
+          "properties": {
+            "code_id": {
+              "type": "integer",
+              "format": "uint16",
+              "minimum": 0.0
+            },
+            "commit_hash": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "repo": {
+              "type": "string"
+            },
+            "verified": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "HumanAddr": {
+      "type": "string"
+    }
+  }
+}

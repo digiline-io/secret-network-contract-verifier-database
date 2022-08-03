@@ -1,18 +1,18 @@
-use cosmwasm_std::HumanAddr;
+use cosmwasm_std::Addr;
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, JsonSchema)]
-pub struct InitMsg {}
+pub struct InstantiateMsg {}
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, JsonSchema)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     SetAdmin {
-        admin: HumanAddr,
+        admin: Addr,
     },
     WriteResult {
-        code_id: u16,
+        code_id: u32,
         repo: String,
         commit_hash: String,
         method: String,
@@ -23,6 +23,6 @@ pub enum HandleMsg {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum QueryMsg {
-    CheckCodeId { code_id: u16 },
+    CheckCodeId { code_id: u32 },
     CheckAllVerified {},
 }
